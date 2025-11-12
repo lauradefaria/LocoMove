@@ -18,7 +18,8 @@ O sistema permite registrar, acompanhar e ajustar sessões de exercício com bas
 - [Arquitetura do Sistema](#-arquitetura-do-sistema)
 - [Principais Funcionalidades](#-principais-funcionalidades)
 - [Modelagem de Dados](#-modelagem-de-dados)
-- [Configuração de Credenciais](#-configuracao-de-credenciais)
+- [Configurar Credenciais](#-configurar-credenciais)
+- [Configurar Hardware](#-configurar-hardware)
 - [Execução Local](#-execução-local)
 - [Autoria e Orientação](#-autoria-e-orientação)
 - [Licença](#-licença)
@@ -146,7 +147,7 @@ Os índices e triggers SQL foram definidos para garantir **eficiência de consul
 
 ---
 
-## 🔐 Configuração de Credenciais
+## 🔐 Configurar Credenciais
 
 Para o correto funcionamento do sistema, é necessário configurar as **credenciais do Supabase** tanto na aplicação web quanto no código do microcontrolador (Arduino/NodeMCU).
 
@@ -173,6 +174,8 @@ const char* password = "SENHA_DA_REDE_WIFI";
 
 const char* supabase_url = "https://<YOUR_PROJECT>.supabase.co";
 const char* supabase_api_key = "<YOUR_SERVICE_ROLE_KEY>";
+
+const float RAIO_RODA = 30.48; // por padrão usa aro 24, mas pode ser alterada
 ```
 
 Dica de Segurança:
@@ -180,6 +183,29 @@ Dica de Segurança:
 - Nunca publique suas chaves diretamente em repositórios públicos.
 - Recomenda-se criar um arquivo .env local (não versionado) e importar as variáveis no ambiente de execução.
 - No Supabase, também é possível criar chaves restritas ou utilizar Row Level Security (RLS) para limitar o acesso aos dados.
+
+---
+
+## ⚙️ Configurar Hardware
+
+O sistema utiliza um microcontrolador ESP8266 NodeMCU conectado com o sensor óptico TCRT5000 para detectar a rotação em tempo real. <br/>
+
+> Pin Mapping — ESP8266
+
+| Component       | ESP8266 Pin | GPIO  | Description                             |
+| --------------- | ----------- | ----- | --------------------------------------- |
+| **Sensor (DO)** | D2          | GPIO4 | Digital signal input from TCRT5000      |
+| **LED_BUILTIN** | D4          | GPIO2 | On-board LED used for status indication |
+<br/>
+
+> Physical Connections — TCRT5000 → ESP8266
+
+| TCRT5000 Pin            | Connection |
+| ----------------------- | ---------- |
+| **VCC**                 | 5V         |
+| **GND**                 | GND        |
+| **DO (Digital Output)** | D2 (GPIO4) |
+
 
 ---
 
