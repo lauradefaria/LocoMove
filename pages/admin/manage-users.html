@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciar Usuários</title>
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="../../css/admin.css">
+</head>
+<body>
+    <div class="page-container">
+        <div class="page-header">
+            <button onclick="window.location.href='admin.html'" class="btn-back">← Voltar ao Painel</button>
+            <h1>Gerenciar Usuários</h1>
+            <div class="header-actions">
+                <input type="text" id="searchUsers" placeholder="Buscar usuário..." class="search-input">
+            </div>
+        </div>
+
+        <div class="page-content">
+            <div class="users-grid" id="usersGrid">
+                <p class="loading">Carregando usuários...</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../js/supabase-config.js"></script>
+    <script src="../../js/admin/manage-users.js"></script>
+</body>
+</html>

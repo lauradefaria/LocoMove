@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sessão de Exercício</title>
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="../../css/user.css">
+</head>
+<body>
+    <div class="exercise-session">
+        <div class="exercise-container">
+            <div class="exercise-header">
+                <button class="btn-back" id="backBtn">← Voltar</button>
+            </div>
+            
+            <div class="exercise-status">
+                <h1>Sessão de Exercício</h1>
+                <span class="status-badge waiting" id="statusBadge">Aguardando Início</span>
+            </div>
+            
+            <div id="countdownSection" style="display: none;">
+                <div class="countdown" id="countdownDisplay">5</div>
+            </div>
+            
+            <div class="exercise-metrics">
+                <!-- Tempo em destaque -->
+                <div class="metric-card-large">
+                    <div class="label">Tempo</div>
+                    <div class="value-large" id="timeDisplay">00:00</div>
+                    <div class="unit">minutos</div>
+                </div>
+                
+                <!-- Métricas secundárias em linha -->
+                <div class="metrics-row">
+                    <div class="metric-card">
+                        <div class="label">Velocidade</div>
+                        <div class="value" id="velocityDisplay">0.00</div>
+                        <div class="unit">m/s</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="label">Aceleração</div>
+                        <div class="value" id="accelerationDisplay">0.0000</div>
+                        <div class="unit">m/s²</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="label">Distância</div>
+                        <div class="value" id="distanceDisplay">0.00</div>
+                        <div class="unit">km</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="exercise-controls">
+                <button class="btn-exercise btn-start" id="controlBtn">Iniciar</button>
+            </div>
+            
+            <div id="resultsSection" style="display: none;">
+                <div class="exercise-results">
+                    <h2>Resultados do Exercício</h2>
+                    <div class="results-grid">
+                        <div class="result-card">
+                            <h3>Tempo Total</h3>
+                            <div class="result-value" id="resultTotalTime">0</div>
+                            <div class="result-unit">minutos</div>
+                        </div>
+                        <div class="result-card">
+                            <h3>Distância Total</h3>
+                            <div class="result-value" id="resultTotalDistance">0</div>
+                            <div class="result-unit">km</div>
+                        </div>
+                        <div class="result-card">
+                            <h3>Velocidade Média</h3>
+                            <div class="result-value" id="resultAvgVelocity">0</div>
+                            <div class="result-unit">m/s</div>
+                        </div>
+                        <div class="result-card">
+                            <h3>Velocidade Máxima</h3>
+                            <div class="result-value" id="resultMaxVelocity">0</div>
+                            <div class="result-unit">m/s</div>
+                        </div>
+                        <div class="result-card">
+                            <h3>Velocidade Mínima</h3>
+                            <div class="result-value" id="resultMinVelocity">0</div>
+                            <div class="result-unit">m/s</div>
+                        </div>
+                        <div class="result-card">
+                            <h3>Aceleração Média</h3>
+                            <div class="result-value" id="resultAvgAcceleration">0</div>
+                            <div class="result-unit">m/s²</div>
+                        </div>
+                    </div>
+                    <div class="exercise-controls">
+                        <button class="btn-exercise btn-finish" id="finishBtn">Finalizar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../js/supabase-config.js"></script>
+    <script src="../../js/user/exercise-session.js"></script>
+</body>
+</html>

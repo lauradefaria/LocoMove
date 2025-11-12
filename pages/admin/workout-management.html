@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciar Treinos</title>
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="../../css/admin.css">
+    <link rel="stylesheet" href="../../css/workout-management.css">
+</head>
+<body>
+    <div class="page-container">
+        <div class="page-header">
+            <button onclick="window.location.href='admin.html'" class="btn-back">← Voltar ao Painel</button>
+            <h1>Gerenciar Treinos</h1>
+        </div>
+        <div class="page-content">
+            <!-- Container Principal -->
+            <div class="workout-management-container">
+                <!-- Painel de Usuários -->
+                <div class="users-panel">
+                    <h3>Selecione um Usuário</h3>
+                    <div class="search-box">
+                        <input type="text" id="search-user" placeholder="🔍 Buscar usuário...">
+                    </div>
+                    <div id="users-list" class="users-list">
+                        <div class="loading">Carregando usuários...</div>
+                    </div>
+                </div>
+
+                <!-- Painel de Treinos -->
+                <div class="workouts-panel">
+                    <div id="no-user-selected" class="empty-state">
+                        <div class="empty-icon">🏋️</div>
+                        <p>Selecione um usuário para visualizar seus treinos</p>
+                    </div>
+
+                    <div id="workouts-content" class="workouts-content" style="display: none;">
+                        <div class="workouts-header">
+                            <h3 id="selected-user-name"></h3>
+                            <button id="btn-refresh-workouts" class="btn-icon" title="Atualizar">
+                                🔄
+                            </button>
+                        </div>
+
+                        <div id="workouts-list" class="workouts-list">
+                            <!-- Treinos serão carregados aqui -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../js/supabase-config.js"></script>
+    <script src="../../js/admin/workout-management.js"></script>
+</body>
+</html>

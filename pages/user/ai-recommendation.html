@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Treino Recomendado</title>
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="../../css/user.css">
+    <link rel="stylesheet" href="../../css/ai-recommendation.css">
+</head>
+<body class="dashboard-page">
+    <div class="container">
+        <div class="dashboard">
+            <header class="dashboard-header">
+                <div style="display: flex; align-items: center; gap: 15px;">
+                    <h1 style="margin: 0;">Meu Treino Recomendado</h1>
+                </div>
+            </header>
+
+            <main class="dashboard-content">
+                <!-- Aviso sobre IA -->
+                <div class="info-banner">
+                    <div class="banner-icon">🤖</div>
+                    <div class="banner-content">
+                        <strong>Treino Ajustado por Inteligência Artificial</strong>
+                        <p>Este treino foi gerado automaticamente com base em suas características e no desempenho de usuários similares. 
+                        O sistema analisa continuamente seu progresso para ajustar as recomendações.</p>
+                    </div>
+                </div>
+
+                <!-- Container do Treino -->
+                <div id="workout-container" class="workout-section">
+                    <div class="loading-state">
+                        <div class="spinner"></div>
+                        <p>Carregando treino...</p>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../js/supabase-config.js"></script>
+    <script src="../../js/user/training-recommendation.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', async function() {
+            console.log('🚀 Página de Recomendação carregada');
+            
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            
+            if (!currentUser) {
+                console.error('❌ Usuário não autenticado');
+                window.location.href = '../../login.html';
+                return;
+            }
+            
+            await loadRecommendation(currentUser.id);
+        });
+
+        async function loadRecommendation(userId) {
+            const container = document.getElementById('workout-container');
+            
+            try {
+                container.innerHTML = `
+                    <div class="loading-state">
+                        <div class="spinner"></div>
+                        <p>Analisando seu perfil e comparando com usuários similares...</p>
+                    </div>
+                `;
+                
+                const recommendation = await window.trainingRecommendation.getRecommendation(userId);
+                
+                // OPÇÃO 3: Sem exercícios
+                if (!recommendation) {
+                    displayNoExercisesWarning(container);
+                    return;
+                }
+                
+                // Exibir recomendação
+                displayWorkout(container, recommendation);
+                
+            } catch (error) {
+                console.error('❌ Erro ao carregar recomendação:', error);
+                container.innerHTML = `
+                    <div class="error-message show">
+                        <p>❌ Erro ao carregar recomendação: ${error.message}</p>
+                    </div>
+                `;
+            }
+        }
+
+        function displayWorkout(container, workout) {
+            const isManual = workout.message && workout.message.includes('ajustado manualmente');
+            
+            let headerHTML = '';
+            if (isManual) {
+                headerHTML = `
+                    <div class="workout-header">
+                        <h2>🎯 Seu Treino Personalizado</h2>
+                        <div class="manual-badge">
+                            <span class="info-icon" title="Ajustado por profissional">ℹ️</span>
+                            <span>Ajustado Manualmente</span>
+                        </div>
+                    </div>
+                `;
+            } else {
+                const confidenceColor = workout.confidence >= 70 ? '#28a745' : 
+                                       workout.confidence >= 50 ? '#ffc107' : '#dc3545';
+                const confidenceText = workout.confidence >= 70 ? 'Alta' : 
+                                      workout.confidence >= 50 ? 'Média' : 'Baixa';
+                
+                headerHTML = `
+                    <div class="workout-header">
+                        <h2>🎯 Seu Treino Personalizado</h2>
+                        <div class="confidence-badge" style="background: ${confidenceColor}">
+                            <span>🤖 IA: ${workout.confidence}% - ${confidenceText}</span>
+                        </div>
+                    </div>
+                `;
+            }
+            
+            container.innerHTML = `
+                <div class="stats-card">
+                    ${headerHTML}
+                    
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <div class="stat-icon">🏃</div>
+                            <div class="stat-content">
+                                <span class="stat-label">Velocidade Alvo</span>
+                                <span class="stat-value">${workout.velocidade_alvo} m/s</span>
+                            </div>
+                        </div>
+                        
+                        <div class="stat-item">
+                            <div class="stat-icon">⏱️</div>
+                            <div class="stat-content">
+                                <span class="stat-label">Tempo de Trabalho</span>
+                                <span class="stat-value">${workout.tempo_trabalho}s</span>
+                            </div>
+                        </div>
+                        
+                        <div class="stat-item">
+                            <div class="stat-icon">💤</div>
+                            <div class="stat-content">
+                                <span class="stat-label">Tempo de Descanso</span>
+                                <span class="stat-value">${workout.tempo_descanso}s</span>
+                            </div>
+                        </div>
+                        
+                        <div class="stat-item">
+                            <div class="stat-icon">🔁</div>
+                            <div class="stat-content">
+                                <span class="stat-label">Repetições</span>
+                                <span class="stat-value">${workout.repeticoes}x</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    ${workout.targetDistance ? `
+                        <div class="additional-info">
+                            <div class="info-badge">
+                                📏 Distância Alvo: ${workout.targetDistance} km
+                            </div>
+                            ${workout.targetAcceleration ? `
+                                <div class="info-badge">
+                                    ⚡ Aceleração Alvo: ${workout.targetAcceleration} m/s²
+                                </div>
+                            ` : ''}
+                        </div>
+                    ` : ''}
+                    
+                    <div class="notes-section">
+                        <h3>📝 Observações</h3>
+                        <p>${workout.observacoes}</p>
+                    </div>
+                    
+                    ${workout.similarProfiles && workout.similarProfiles.length > 0 ? `
+                        <div class="profiles-section">
+                            <h3>👥 Perfis Similares Analisados</h3>
+                            <div class="profiles-grid">
+                                ${workout.similarProfiles.map(profile => `
+                                    <div class="profile-item">
+                                        <div class="profile-info">
+                                            <strong>${profile.name}</strong>
+                                            <span>${profile.age} anos • ${profile.sci_category || 'N/A'} • ${profile.sci_level || 'N/A'}</span>
+                                        </div>
+                                        <div class="profile-badge">
+                                            ${(100 - profile.distance * 100).toFixed(0)}% similar
+                                        </div>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                    ` : ''}
+                    
+                    <div class="action-buttons">
+                        <button onclick="window.location.href='user.html'" class="btn-secondary">
+                            Voltar ao Painel
+                        </button>
+                        <button onclick="window.location.href='exercise-session.html'" class="btn-primary">
+                            Iniciar Exercício →
+                        </button>
+                    </div>
+                </div>
+            `;
+        }
+
+        function displayNoExercisesWarning(container) {
+            container.innerHTML = `
+                <div class="stats-card" style="text-align: center; padding: 40px;">
+                    <div style="font-size: 64px; margin-bottom: 20px;">⚠️</div>
+                    <h2 style="color: #2c3e50; margin-bottom: 15px;">Primeiro Exercício Necessário</h2>
+                    <p style="color: #666; margin-bottom: 15px;">
+                        Para gerar uma recomendação personalizada, você precisa realizar pelo menos um exercício primeiro.
+                    </p>
+                    <p style="color: #666; margin-bottom: 30px;">
+                        Após o primeiro exercício, nossa IA poderá analisar seu desempenho e comparar com outros usuários similares.
+                    </p>
+                    
+                    <div class="action-buttons">
+                        <button onclick="window.location.href='user.html'" class="btn-secondary">
+                            Voltar ao Painel
+                        </button>
+                        <button onclick="window.location.href='exercise-session.html'" class="btn-primary">
+                            Realizar Primeiro Exercício →
+                        </button>
+                    </div>
+                </div>
+            `;
+        }
+    </script>
+</body>
+</html>

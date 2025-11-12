@@ -1,0 +1,235 @@
+/* Paleta de Cores (Definida para consistência) */
+:root {
+    --azul-escuro: #003366; /* Fundo Principal, Texto */
+    --azul-medio: #0066CC;   /* Botões Secundários */
+    --dourado: #FFB81C;      /* Destaques */
+    --branco: #FFFFFF;
+    --cinza-claro: #f5f7fa;
+    --cinza-texto: #666;
+    --gradient-btn: linear-gradient(135deg, #003366 0%, #0066CC 100%);
+}
+
+/* Base e Estilização da Página de Autenticação */
+.auth-page {
+    background: linear-gradient(135deg, var(--azul-escuro) 0%, var(--azul-medio) 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    margin: 0;
+}
+
+/* Container Principal */
+.container {
+    position: relative;
+    width: 100%; 
+    max-width: 450px;
+    padding-top: 50px; /* Espaço para o botão voltar */
+}
+
+/* Botão Voltar */
+.btn-back-corner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0.5rem 1rem;
+    background-color: rgba(255, 255, 255, 0.15);
+    color: var(--branco);
+    border: 2px solid var(--branco);
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.btn-back-corner:hover {
+    background-color: var(--branco);
+    color: var(--azul-escuro);
+}
+
+.btn-back-fixed {
+    position: fixed; 
+    top: 60px; 
+    left: 60px; 
+    padding: 0.6rem 1.2rem; 
+    background-color: rgba(255, 255, 255, 0.15); /* Um pouco mais visível, mas ainda discreto */
+    color: var(--branco);
+    border: 1px solid var(--branco);
+    border-radius: 8px; 
+    cursor: pointer;
+    font-size: 0.95rem; 
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    z-index: 1000; 
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); 
+}
+
+.btn-back-fixed:hover {
+    background-color: var(--branco);
+    color: var(--azul-escuro);
+    border-color: var(--dourado); 
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Card de Login */
+.login-card {
+    position: relative;
+    background: var(--branco);
+    padding: 80px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 51, 102, 0.5); 
+    width: 100%;
+    max-width: 500px; 
+    border-top: 5px solid var(--dourado); 
+}
+
+.logo-section {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.logo {
+    width: 100px; /* Aumentado de 70px para 100px */
+    height: 100px; /* Aumentado de 70px para 100px */
+    margin-bottom: 0.5rem;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 50%;
+    border: 3px solid var(--dourado); 
+}
+
+.brand-name {
+    font-size: 1.8rem;
+    color: var(--azul-escuro);
+    margin: 0;
+    font-weight: 700;
+    text-align: center;
+}
+
+.login-card h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    margin-top: 0;
+    font-size: 1.5rem;
+    color: var(--azul-escuro);
+    font-weight: 600;
+    border-bottom: 2px solid var(--cinza-claro);
+    padding-bottom: 10px;
+}
+
+.form-group {
+    margin-bottom: 1.2rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--azul-escuro);
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.form-group input[type="email"],
+.form-group input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus {
+    border-color: var(--azul-medio);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.2);
+}
+
+.btn-login {
+    width: 100%;
+    padding: 12px;
+    margin-top: 1rem;
+    background: var(--gradient-btn);
+    color: var(--branco);
+    border: none;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: opacity 0.3s, transform 0.2s;
+    box-shadow: 0 4px 15px rgba(0, 51, 102, 0.3);
+}
+
+.btn-login:hover {
+    opacity: 0.95;
+    transform: translateY(-2px);
+}
+
+.form-footer {
+    text-align: center;
+    margin-top: 1.5rem;
+}
+
+.form-footer p {
+    color: var(--cinza-texto);
+    font-size: 0.9rem;
+}
+
+.form-footer a {
+    color: var(--azul-medio);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.form-footer a:hover {
+    text-decoration: underline;
+}
+
+.error-message {
+    color: #ff4d4f;
+    background-color: #ffebe6;
+    border: 1px solid #ffccc7;
+    padding: 10px;
+    border-radius: 4px;
+    margin-top: 1rem;
+    text-align: center;
+    font-size: 0.9em;
+    display: none;
+}
+
+.login-card h1 {
+    display: none;
+}
+
+.btn-back-internal {
+    position: absolute; 
+    
+    /* 1. Ajustar Posição */
+    /* top: 15px; -> Mude para 20px ou mais para descer. */
+    top: 90px; 
+    /* left: 15px; -> Mude para 20px ou mais para descolar. */
+    left: 30px; 
+    
+    /* 2. Estilização para o Tema */
+    padding: 0.5rem 1rem;
+    background-color: transparent;
+    color: var(--azul-escuro);     
+    border: 1px solid var(--azul-escuro); 
+    border-radius: 6px; 
+    cursor: pointer;
+    font-size: 0.85rem; 
+    font-weight: 600;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+    z-index: 5;
+}
+
+.btn-back-internal:hover {
+    background-color: var(--azul-escuro);
+    color: var(--branco);
+    border-color: var(--azul-escuro);
+}

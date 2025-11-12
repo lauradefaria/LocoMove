@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes do Exercício</title>
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="../../css/user.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body class="exercise-details-page">
+    <div class="details-container">
+        <a href="user.html" class="back-button">
+            ← Voltar ao Dashboard
+        </a>
+        
+        <div class="details-header">
+            <h1>Detalhes do Exercício</h1>
+            <div class="details-date" id="exerciseDate">Carregando...</div>
+        </div>
+        
+        <div class="details-content">
+            <!-- Métricas do Exercício -->
+            <div class="details-section">
+                <h2>Métricas do Exercício</h2>
+                <div class="results-grid">
+                    <div class="result-card">
+                        <h3>Tempo Total</h3>
+                        <div class="result-value" id="detailTotalTime">0</div>
+                        <div class="result-unit">minutos</div>
+                    </div>
+                    <div class="result-card">
+                        <h3>Distância Total</h3>
+                        <div class="result-value" id="detailTotalDistance">0</div>
+                        <div class="result-unit">km</div>
+                    </div>
+                    <div class="result-card">
+                        <h3>Velocidade Média</h3>
+                        <div class="result-value" id="detailAvgVelocity">0</div>
+                        <div class="result-unit">m/s</div>
+                    </div>
+                    <div class="result-card">
+                        <h3>Velocidade Máxima</h3>
+                        <div class="result-value" id="detailMaxVelocity">0</div>
+                        <div class="result-unit">m/s</div>
+                    </div>
+                    <div class="result-card">
+                        <h3>Velocidade Mínima</h3>
+                        <div class="result-value" id="detailMinVelocity">0</div>
+                        <div class="result-unit">m/s</div>
+                    </div>
+                    <div class="result-card">
+                        <h3>Aceleração Média</h3>
+                        <div class="result-value" id="detailAvgAcceleration">0</div>
+                        <div class="result-unit">m/s²</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Estatísticas e Gráficos -->
+            <div class="details-section">
+                <h2>Estatísticas de Desempenho</h2>
+                
+                <div class="chart-container">
+                    <canvas id="velocityChart"></canvas>
+                </div>
+                
+                <div class="chart-container">
+                    <canvas id="distanceChart"></canvas>
+                </div>
+                
+                <div class="chart-container">
+                    <canvas id="accelerationChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../js/supabase-config.js"></script>
+    <script src="../../js/user/exercise-details.js"></script>
+</body>
+</html>

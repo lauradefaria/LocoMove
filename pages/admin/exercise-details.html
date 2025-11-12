@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes do Exercício</title>
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="../../css/admin.css">
+    <link rel="stylesheet" href="../../css/user.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body class="exercise-details-page">
+    <div class="details-container">
+        <a href="#" class="back-button">
+            ← Voltar
+        </a>
+        
+        <div class="details-header">
+            <h1>Detalhes do Exercício</h1>
+            <div class="details-date" id="exerciseDate">Carregando...</div>
+            <button id="deleteExerciseBtn" class="btn-delete-exercise" style="display: none;">
+                🗑️ Apagar
+            </button>
+        </div>
+        
+        <div class="details-content">
+            <!-- Métricas do Exercício -->
+            <div class="details-section">
+                <div class="notes-header">
+                    <h2>Observações</h2>
+                    <button id="editNotesBtn" class="btn-action" style="display: none;">✏️ Editar</button>
+                </div>
+                <div class="notes-content" id="notesContent">
+                    <p class="no-data">Nenhuma observação registrada</p>
+                </div>
+                <h2>Métricas do Exercício</h2>
+                <div class="results-grid">
+                    <div class="result-card">
+                        <h3>Tempo Total</h3>
+                        <div class="result-value" id="detailTotalTime">0</div>
+                        <div class="result-unit">minutos</div>
+                    </div>
+                    <div class="result-card">
+                        <h3>Distância Total</h3>
+                        <div class="result-value" id="detailTotalDistance">0</div>
+                        <div class="result-unit">km</div>
+                    </div>
+                    <div class="result-card">
+                        <h3>Velocidade Média</h3>
+                        <div class="result-value" id="detailAvgVelocity">0</div>
+                        <div class="result-unit">m/s</div>
+                    </div>
+                    <div class="result-card">
+                        <h3>Velocidade Máxima</h3>
+                        <div class="result-value" id="detailMaxVelocity">0</div>
+                        <div class="result-unit">m/s</div>
+                    </div>
+                    <div class="result-card">
+                        <h3>Velocidade Mínima</h3>
+                        <div class="result-value" id="detailMinVelocity">0</div>
+                        <div class="result-unit">m/s</div>
+                    </div>
+                    <div class="result-card">
+                        <h3>Aceleração Média</h3>
+                        <div class="result-value" id="detailAvgAcceleration">0</div>
+                        <div class="result-unit">m/s²</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Gráficos do Exercício -->
+            <div class="details-section">
+                <h2>Evolução Durante o Exercício</h2>
+                
+                <div class="chart-container">
+                    <canvas id="velocityChart"></canvas>
+                </div>
+                
+                <div class="chart-container">
+                    <canvas id="accelerationChart"></canvas>
+                </div>
+                
+                <div class="chart-container">
+                    <canvas id="distanceChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="notesModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Editar Observações</h2>
+            <form id="notesForm">
+                <div class="form-group">
+                    <label for="notesTextarea">Observações sobre o exercício:</label>
+                    <textarea id="notesTextarea" rows="6" maxlength="500"></textarea>
+                    <small>Máximo 500 caracteres</small>
+                </div>
+                <div class="error-message" id="notesError"></div>
+                <button type="submit" class="btn-primary">Salvar Observações</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../js/supabase-config.js"></script>
+    <script src="../../js/admin/exercise-details.js"></script> <!-- ou user/exercise-details.js -->
+</body>
+</html>

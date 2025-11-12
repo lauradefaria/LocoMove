@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estatísticas de Desempenho</title>
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="../../css/admin.css">
+</head>
+<body>
+    <div class="page-container">
+        <div class="page-header">
+            <button onclick="window.location.href='user-profile.html'" class="btn-back">← Voltar ao Perfil</button>
+            <h1>Estatísticas de Desempenho</h1>
+        </div>
+
+        <div class="page-content">
+            <div class="stats-header">
+                <h2 id="userStatsTitle">Análise de Desempenho</h2>
+                <div class="stats-filters">
+                    <div class="year-filter">
+                        <label for="statsYearSelect">Ano:</label>
+                        <select id="statsYearSelect">
+                            <!-- Será preenchido dinamicamente -->
+                        </select>
+                    </div>
+                    <div class="period-selector">
+                        <button class="btn-period active" data-period="month">Último Mês</button>
+                        <button class="btn-period" data-period="semester">Últimos 6 Meses</button>
+                        <button class="btn-period" data-period="year">Último Ano</button>
+                    </div>
+                </div>
+            </div>
+            <div class="stats-container" id="statsContainer">
+                <p class="loading">Carregando estatísticas...</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script src="../../js/supabase-config.js"></script>
+    <script src="../../js/admin/statistics.js"></script>
+</body>
+</html>

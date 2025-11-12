@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel do Usuário</title>
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="../../css/user.css">
+</head>
+<body class="dashboard-page">
+    <div class="container">
+        <div class="dashboard">
+            <header class="dashboard-header">
+                <h1>Painel do Usuário</h1>
+                <div class="user-info">
+                    <span id="userName">Carregando...</span>
+                    <button id="logoutBtn" class="btn-logout">Sair</button>
+                </div>
+            </header>
+            
+            <main class="dashboard-content">
+                <!-- Ações Rápidas -->
+                <div class="dashboard-actions">
+                    <div class="action-card" id="startExerciseBtn">
+                        <span class="icon">
+                            <img src="../../assets/icons/run-yellow.png" alt="Iniciar Exercício">
+                        </span>
+                        <h3>Iniciar Exercício</h3>
+                    </div>
+                    <div class="action-card" id="viewRecommendationBtn">
+                        <span class="icon">
+                            <img src="../../assets/icons/fitness.png" alt="Recomendação de Treino">
+                        </span>
+                        <h3>Recomendação de Treino</h3>
+                    </div>
+                    <div class="action-card" id="viewProfileBtn">
+                        <span class="icon">
+                            <img src="../../assets/icons/user-avatar.png" alt="Editar Perfil">
+                        </span>
+                        <h3>Editar Perfil</h3>
+                    </div>
+                </div>
+                
+                <!-- Calendário de Exercícios -->
+                <div class="calendar-section">
+                    <div class="calendar-header">
+                        <h2>Histórico de Exercícios</h2>
+                        <div class="date-filters">
+                            <div class="month-navigator">
+                                <button id="prevMonth" aria-label="Mês anterior">◀</button>
+                                <span id="currentMonth">Carregando...</span>
+                                <button id="nextMonth" aria-label="Próximo mês" disabled>▶</button>
+                            </div>
+                            <div class="year-selector">
+                                <label for="yearSelect">Ano:</label>
+                                <select id="yearSelect">
+                                    <!-- Será preenchido dinamicamente -->
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="exercisesCalendar">
+                        <p class="loading">Carregando exercícios...</p>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../js/supabase-config.js"></script>
+    <script src="../../js/user/ai-recommendation.js"></script>
+    <script src="../../js/user/user.js"></script>
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar Novo Usuário</title>
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="../../css/admin.css">
+</head>
+<body>
+    <div class="page-container">
+        <div class="page-header">
+            <button onclick="window.location.href='admin.html'" class="btn-back">← Voltar ao Painel</button>
+            <h1>Cadastrar Novo Usuário</h1>
+        </div>
+
+        <div class="page-content">
+            <div class="register-container">
+                <form id="adminRegisterForm">
+                    <div class="form-section">
+                        <h3>Dados Pessoais</h3>
+                        
+                        <div class="form-group">
+                            <label for="reg_name">Nome Completo: *</label>
+                            <input type="text" id="reg_name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="reg_email">Email: *</label>
+                            <input type="email" id="reg_email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="reg_password">Senha: *</label>
+                            <input type="password" id="reg_password" name="password" required minlength="6">
+                            <small>Mínimo de 6 caracteres</small>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="reg_birthdate">Data de Nascimento: *</label>
+                                <input type="date" id="reg_birthdate" name="birthdate" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="reg_gender">Gênero:</label>
+                                <select id="reg_gender" name="gender">
+                                    <option value="">Selecione</option>
+                                    <option value="Masculino">Masculino</option>
+                                    <option value="Feminino">Feminino</option>
+                                    <option value="Outro">Outro</option>
+                                    <option value="Prefiro não informar">Prefiro não informar</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="reg_is_admin" name="is_admin">
+                                <span>Este usuário será um Administrador</span>
+                            </label>
+                            <small>Administradores têm acesso total ao sistema e podem gerenciar outros usuários</small>
+                        </div>
+                    </div>
+                    
+                    <div class="form-section">
+                        <h3>Informações Clínicas (Opcional)</h3>
+                        
+                        <div class="form-group">
+                            <label for="reg_sci_cause">
+                                Causa da Lesão:
+                                <span class="info-icon" title="Motivo da lesão medular (ex: traumática, infecciosa, congênita, etc.)">ℹ️</span>
+                            </label>
+                            <input type="text" id="reg_sci_cause" name="sci_cause" placeholder="Ex: Traumática, Infecciosa..." />
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="reg_sci_level">
+                                    Nível da Lesão:
+                                    <span class="info-icon" title="Altura da lesão na medula (ex: C5, T10, L1)">ℹ️</span>
+                                </label>
+                                <input type="text" id="reg_sci_level" name="sci_level" placeholder="Ex: T12, C6..." />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="reg_sci_category">
+                                    Categoria:
+                                    <span class="info-icon" title="Tipo de comprometimento (ex: tetraplegia, paraplegia)">ℹ️</span>
+                                </label>
+                                <input type="text" id="reg_sci_category" name="sci_category" placeholder="Ex: Tetraplegia, Paraplegia" />
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="reg_sci_severity">
+                                    Severidade:
+                                    <span class="info-icon" title="Define se a lesão é completa ou incompleta.">ℹ️</span>
+                                </label>
+                                <input type="text" id="reg_sci_severity" name="sci_severity" placeholder="Ex: Completa, Incompleta" />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="reg_sci_class">
+                                    Classe (ASIA):
+                                    <span class="info-icon" title="Classificação segundo a escala ASIA (A a E).">ℹ️</span>
+                                </label>
+                                <select id="reg_sci_class" name="sci_class">
+                                    <option value="">Selecione</option>
+                                    <option value="A">A - Completa</option>
+                                    <option value="B">B - Incompleta Sensorial</option>
+                                    <option value="C">C - Incompleta Motora</option>
+                                    <option value="D">D - Incompleta Motora</option>
+                                    <option value="E">E - Normal</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="btn-primary">Cadastrar Usuário</button>
+                    
+                    <div id="registerErrorMessage" class="error-message"></div>
+                    <div id="registerSuccessMessage" class="success-message"></div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../js/supabase-config.js"></script>
+    <script src="../../js/admin/register-user.js"></script>
+</body>
+</html>

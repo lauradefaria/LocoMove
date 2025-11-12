@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cadastro de Usuário</title>
+    <link rel="stylesheet" href="../../css/styles.css" />
+</head>
+<body>
+    <div class="container">
+        <div class="register-card">
+            <h1>Cadastro</h1>
+            <form id="registerForm">
+                <div class="form-section">
+                    <h3>Dados Pessoais</h3>
+                    
+                    <div class="form-group">
+                        <label for="name">Nome Completo: *</label>
+                        <input type="text" id="name" name="name" required />
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email: *</label>
+                        <input type="email" id="email" name="email" required />
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="password">Senha: *</label>
+                        <input type="password" id="password" name="password" required minlength="6" />
+                        <small>Mínimo de 6 caracteres</small>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="confirmPassword">Confirmar Senha: *</label>
+                        <input type="password" id="confirmPassword" name="confirmPassword" required />
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="birthdate">Data de Nascimento: *</label>
+                            <input type="date" id="birthdate" name="birthdate" required />
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="gender">Gênero: *</label>
+                            <select id="gender" name="gender" required>
+                                <option value="">Selecione</option>
+                                <option value="Masculino">Masculino</option>
+                                <option value="Feminino">Feminino</option>
+                                <option value="Outro">Outro</option>
+                                <option value="Prefiro não informar">Prefiro não informar</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-section">
+                    <h3>Informações Clínicas *</h3>
+
+                    <div class="form-group">
+                        <label for="sci_cause">
+                            Causa da Lesão: *
+                            <span class="info-icon" title="Motivo principal da lesão medular (ex: traumática, infecciosa, congênita, etc.)">ℹ️</span>
+                        </label>
+                        <select id="sci_cause" name="sci_cause" required>
+                            <option value="">Selecione</option>
+                            <option value="Traumática">Traumática</option>
+                            <option value="Não traumática">Não traumática</option>
+                            <option value="Congênita">Congênita</option>
+                            <option value="Degenerativa">Degenerativa</option>
+                            <option value="Vascular">Vascular</option>
+                            <option value="Infecciosa">Infecciosa</option>
+                            <option value="Tumoral">Tumoral</option>
+                            <option value="Outra">Outra</option>
+                        </select>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="sci_level">
+                                Nível da Lesão: *
+                                <span class="info-icon" title="Altura da lesão na medula (ex: C5, T10, L1)">ℹ️</span>
+                            </label>
+                            <select id="sci_level" name="sci_level" required>
+                                <option value="">Selecione</option>
+                                <optgroup label="Cervical">
+                                    <option value="C1">C1</option>
+                                    <option value="C2">C2</option>
+                                    <option value="C3">C3</option>
+                                    <option value="C4">C4</option>
+                                    <option value="C5">C5</option>
+                                    <option value="C6">C6</option>
+                                    <option value="C7">C7</option>
+                                    <option value="C8">C8</option>
+                                </optgroup>
+                                <optgroup label="Torácica">
+                                    <option value="T1">T1</option>
+                                    <option value="T2">T2</option>
+                                    <option value="T3">T3</option>
+                                    <option value="T4">T4</option>
+                                    <option value="T5">T5</option>
+                                    <option value="T6">T6</option>
+                                    <option value="T7">T7</option>
+                                    <option value="T8">T8</option>
+                                    <option value="T9">T9</option>
+                                    <option value="T10">T10</option>
+                                    <option value="T11">T11</option>
+                                    <option value="T12">T12</option>
+                                </optgroup>
+                                <optgroup label="Lombar">
+                                    <option value="L1">L1</option>
+                                    <option value="L2">L2</option>
+                                    <option value="L3">L3</option>
+                                    <option value="L4">L4</option>
+                                    <option value="L5">L5</option>
+                                </optgroup>
+                                <optgroup label="Sacral">
+                                    <option value="S1">S1</option>
+                                    <option value="S2">S2</option>
+                                    <option value="S3">S3</option>
+                                    <option value="S4">S4</option>
+                                    <option value="S5">S5</option>
+                                </optgroup>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="sci_category">
+                                Categoria: *
+                                <span class="info-icon" title="Tipo de comprometimento motor (ex: tetraplegia, paraplegia, hemiplegia).">ℹ️</span>
+                            </label>
+                            <select id="sci_category" name="sci_category" required>
+                                <option value="">Selecione</option>
+                                <option value="Tetraplegia">Tetraplegia</option>
+                                <option value="Paraplegia">Paraplegia</option>
+                                <option value="Hemiplegia">Hemiplegia</option>
+                                <option value="Monoplegia">Monoplegia</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="sci_severity">
+                                Severidade: *
+                                <span class="info-icon" title="Indica se a lesão é completa (sem função abaixo da lesão) ou incompleta (com função parcial).">ℹ️</span>
+                            </label>
+                            <select id="sci_severity" name="sci_severity" required>
+                                <option value="">Selecione</option>
+                                <option value="Completa">Completa</option>
+                                <option value="Incompleta">Incompleta</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="sci_class">
+                                Classe (ASIA): *
+                                <span class="info-icon" title="Classificação neurológica segundo a escala ASIA (A a E).">ℹ️</span>
+                            </label>
+                            <select id="sci_class" name="sci_class" required>
+                                <option value="">Selecione</option>
+                                <option value="A">A - Completa</option>
+                                <option value="B">B - Incompleta Sensorial</option>
+                                <option value="C">C - Incompleta Motora</option>
+                                <option value="D">D - Incompleta Motora</option>
+                                <option value="E">E - Normal</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn-register">Cadastrar</button>
+                
+                <div class="form-footer">
+                    <p>Já tem uma conta? <a href="../../login.html">Fazer login</a></p>
+                </div>
+                
+                <div id="errorMessage" class="error-message"></div>
+                <div id="successMessage" class="success-message"></div>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../js/supabase-config.js"></script>
+    <script src="../../js/user/register.js"></script>
+</body>
+</html>

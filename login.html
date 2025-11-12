@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - LocoMove</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body class="auth-page">
+    <div class="container">
+        <button class="btn-back-internal" onclick="window.location.href='index.html'">← Voltar</button>
+        
+        <div class="login-card">
+            <div class="logo-section">
+                <img src="assets/logo/locomove-full.png" alt="LocoMove Logo" class="logo">
+                <h1 class="brand-name">LocoMove</h1>
+            </div>
+            
+            <h2>Login</h2>
+            
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Senha:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                
+                <button type="submit" class="btn-login">Entrar</button>
+                
+                <div id="errorMessage" class="error-message"></div>
+                
+                <div class="form-footer">
+                    <p>Não tem uma conta? <a href="pages/user/register.html">Cadastre-se</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase-config.js"></script>
+    <script src="js/login.js"></script>
+</body>
+</html>

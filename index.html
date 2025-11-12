@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plataforma de Monitoramento para Lesão Medular - UFPB</title>
+    <link rel="stylesheet" href="css/home.css">
+</head>
+<body>
+    <<header>
+        <nav>
+            <div class="logo">
+                <div class="logo-symbol-container"> <img src="assets/logo/locomove.png" alt="LocoMove Logo Symbol" class="logo-symbol">
+                </div>
+                <span class="brand-text">LocoMove</span>
+            </div>
+            <div class="nav-right">
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="pages/info/about.html">Sobre</a></li>
+                    <li><a href="pages/info/lesao-medular.html">Lesão Medular</a></li>
+                    <li><a href="pages/info/guide.html">Aplicação</a></li>
+                    <li><a href="pages/info/exercises.html">Exercícios</a></li>
+                </ul>
+                <a href="login.html" class="btn-login">Login</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero" id="inicio">
+        <h1>Plataforma de Monitoramento para Condicionamento Aeróbico</h1>
+        <p>Sistema de baixo custo para monitoramento de exercícios HIIT em pessoas com lesão medular</p>
+        <a href="#projeto" class="btn">Conheça o Projeto</a>
+    </section>
+
+    <div class="container">
+        <!-- Sobre o Projeto -->
+        <section id="projeto">
+            <h2>Sobre o Projeto</h2>
+            <p>
+                A plataforma LocoMove é um sistema de monitoramento desenvolvido para auxiliar pessoas com lesão medular 
+                no condicionamento aeróbico através de protocolos HIIT (High-Intensity Interval Training). 
+                O projeto utiliza tecnologia de baixo custo para tornar o monitoramento acessível, 
+                combinando sensores ESP8266, interface web e algoritmos de inteligência artificial.
+            </p>
+            
+            <div class="cards-three">
+                <div class="card">
+                    <h3>🎯 Objetivo</h3>
+                    <p>Proporcionar uma ferramenta acessível para monitoramento e acompanhamento de exercícios aeróbicos, promovendo qualidade de vida e autonomia para pessoas com lesão medular.</p>
+                </div>
+                <div class="card">
+                    <h3>💡 Tecnologia</h3>
+                    <p>Utiliza ESP8266 para coleta de dados, React para interface web, Supabase para armazenamento e algoritmos KNN para recomendações personalizadas.</p>
+                </div>
+                <div class="card">
+                    <h3>♿ Acessibilidade</h3>
+                    <p>Desenvolvido com foco em baixo custo e facilidade de uso, tornando a tecnologia acessível para reabilitação e manutenção da saúde.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- O que é Lesão Medular -->
+        <section>
+            <h2>O que é Lesão Medular?</h2>
+            <p>
+                A lesão medular (LM) é uma condição que afeta a medula espinhal, resultando em perda de funções motoras, 
+                sensoriais e autonômicas abaixo do nível da lesão. Pode ser causada por traumas, doenças ou condições congênitas.
+            </p>
+
+            <h3>Sedentarismo e seus Malefícios</h3>
+            <p>
+                O sedentarismo é um dos principais problemas enfrentados por pessoas com lesão medular, podendo levar a:
+            </p>
+            <ul>
+                <li>Doenças cardiovasculares e hipertensão</li>
+                <li>Perda de massa muscular e densidade óssea</li>
+                <li>Ganho de peso e obesidade</li>
+                <li>Diabetes tipo 2</li>
+                <li>Depressão e ansiedade</li>
+                <li>Redução da qualidade de vida</li>
+            </ul>
+
+            <a href="pages/info/lesao-medular.html" class="btn-blue" style="margin-top: 1rem;">Saiba Mais sobre Lesão Medular</a>
+        </section>
+
+        <!-- Impacto do Projeto -->
+        <section>
+            <h2>Impacto do Projeto</h2>
+            <div class="cards-three">
+                <div class="card">
+                    <h3>Combate ao Sedentarismo</h3>
+                    <p>Facilita o acesso a programas de exercícios estruturados e monitorados, incentivando a prática regular de atividades físicas.</p>
+                </div>
+                <div class="card">
+                    <h3>Monitoramento Contínuo</h3>
+                    <p>Permite acompanhamento em tempo real do desempenho, auxiliando profissionais de saúde na prescrição de exercícios adequados.</p>
+                </div>
+                <div class="card">
+                    <h3>Baixo Custo</h3>
+                    <p>Utiliza componentes acessíveis, democratizando o acesso à tecnologia de monitoramento de saúde.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Como Usar a Plataforma -->
+        <section id="como-usar">
+            <h2>Como Usar a Plataforma</h2>
+            
+            <div class="steps">
+                <div class="step">
+                    <h3>Cadastro e Login</h3>
+                    <p>Acesse a plataforma e realize seu cadastro com email e senha. Administradores podem gerenciar usuários e acompanhar todos os pacientes.</p>
+                </div>
+                
+                <div class="step">
+                    <h3>Configuração do Equipamento</h3>
+                    <p>Conecte o sensor TCRT5000 ao ESP8266 e posicione-o no ergômetro de cadeira de rodas. Certifique-se de que o sistema está conectado à rede Wi-Fi.</p>
+                </div>
+                
+                <div class="step">
+                    <h3>Início do Exercício</h3>
+                    <p>Na interface web, selecione "Iniciar Treino". O sistema começará a capturar dados de velocidade e rotações em tempo real.</p>
+                </div>
+                
+                <div class="step">
+                    <h3>Durante o Treino</h3>
+                    <p>Acompanhe suas métricas em tempo real no painel. O sistema registra velocidade, tempo e distância percorrida.</p>
+                </div>
+                
+                <div class="step">
+                    <h3>Análise dos Resultados</h3>
+                    <p>Após o treino, visualize seus dados históricos, gráficos de desempenho e recomendações personalizadas baseadas em IA.</p>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <h3>Requisitos do Sistema</h3>
+                <ul>
+                    <li>ESP8266 com sensor TCRT5000</li>
+                    <li>Conexão Wi-Fi</li>
+                    <li>Ergômetro de cadeira de rodas</li>
+                    <li>Navegador web atualizado (Chrome, Firefox, Safari ou Edge)</li>
+                </ul>
+            </div>
+            <a href="pages/info/guide.html" class="btn-blue" style="margin-top: 1.5rem;">Acessar Guia da Aplicação</a>
+        </section>
+
+        <!-- Equipe -->
+        <section id="equipe">
+            <h2>Equipe do Projeto</h2>
+            
+            <div class="team-section">
+                <a href="https://www.linkedin.com/in/lauradefaria/" target="_blank" class="team-link">
+                    <div class="team-member">
+                        <div style="width: 120px; height: 120px; background: var(--border-color); border-radius: 50%; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; color: var(--text-light);">
+                            <img src="../../assets/team/laura.jpg" 
+                                alt="Laura de Faria" 
+                                style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <h3>Laura de Faria</h3>
+                        <p>Desenvolvedora e Pesquisadora</p>
+                        <p>Engenharia de Computação - UFPB</p>
+                        <p style="margin-top: 1rem; font-size: 0.85rem;">
+                            Responsável pelo desenvolvimento da plataforma, programação do ESP8266, 
+                            implementação dos algoritmos de IA e interface web.
+                        </p>
+                    </div>
+                </a>
+
+                <a href="https://www.linkedin.com/in/clauirton-siebra-6a683b15b/" target="_blank" class="team-link">
+                    <div class="team-member">
+                        <div style="width: 120px; height: 120px; background: var(--border-color); border-radius: 50%; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; color: var(--text-light);">
+                            <img src="../../assets/team/clauirton.jpg" 
+                            alt="Prof. Dr. Clauirton de Albuquerque Siebra" 
+                            style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <h3>Prof. Dr. Clauirton de Albuquerque Siebra</h3>
+                        <p>Orientador e Coordenador</p>
+                        <p>LIIA - UFPB</p>
+                        <p style="margin-top: 1rem; font-size: 0.85rem;">
+                            Coordenador do LIIA e orientador do projeto, responsável pela supervisão 
+                            técnica e direcionamento da pesquisa.
+                        </p>
+                    </div>
+                </a>
+
+                <a href="https://sigaa.ufpb.br/sigaa/public/docente/portal.jsf?siape=1650944" target="_blank" class="team-link">
+                    <div class="team-member">
+                        <div style="width: 120px; height: 120px; background: var(--border-color); border-radius: 50%; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; color: var(--text-light);">
+                            <img src="../../assets/team/elaine.jpg" 
+                                alt="Profª Elaine da Costa Ferreira" 
+                            style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <h3>Profª Elaine da Costa Ferreira</h3>
+                        <p>Colaboração Técnica</p>
+                        <p>Educação Física - UFPB</p>
+                        <p style="margin-top: 1rem; font-size: 0.85rem;">
+                            Consultoria em protocolos de exercícios HIIT e orientações sobre 
+                            condicionamento físico para pessoas com lesão medular.
+                        </p>
+                    </div>
+                </a>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 LIIA - Laboratório de Inovação e Inteligência Artificial | UFPB</p>
+        <p>Desenvolvido como Trabalho de Conclusão de Curso</p>
+        <p style="margin-top: 0.5rem;">
+            GitHub: <a href="https://github.com/lauradefaria" target="_blank" rel="noopener noreferrer" style="color: white; text-decoration: none;">lauradefaria</a>
+        </p>
+    </footer>
+
+    <script>
+        // Smooth scroll para links de navegação
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel Administrativo</title>
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="../../css/admin.css">
+</head>
+<body class="dashboard-page">
+    <div class="dashboard">
+        <div class="dashboard-header">
+            <h1>Painel Administrativo</h1>
+            <div class="user-info">
+                <span id="adminName"></span>
+                <button id="logoutBtn" class="btn-logout">Sair</button>
+            </div>
+        </div>
+
+        <div class="dashboard-content">
+            <!-- Perfil do Admin -->
+            <section class="profile-section">
+                <h2>Meu Perfil</h2>
+                <div class="profile-card" id="profileCard">
+                    <!-- Será preenchido dinamicamente -->
+                </div>
+            </section>
+
+            <!-- Ações Administrativas -->
+            <section class="admin-actions">
+                <h2>Ações Administrativas</h2>
+                <div class="action-cards">
+                    <div class="action-card" onclick="window.location.href='manage-users.html'">
+                        <div class="action-icon">
+                            <img src="../../assets/icons/multiple-users-silhouette.png" alt="Ícone Gerenciar Usuários">
+                        </div>
+                        <h3>Gerenciar Usuários</h3>
+                        <p>Visualizar, editar e gerenciar todos os usuários cadastrados no sistema</p>
+                        <button class="btn-action-card">Acessar</button>
+                    </div>
+                    <div class="action-card" onclick="window.location.href='workout-management.html'">
+                        <div class="action-icon">
+                            <img src="../../assets/icons/checklist.png" alt="Ícone Gerenciar Treinos">
+                        </div>
+                        <h3>Gerenciar Treinos</h3>
+                        <p>Visualizar e editar treinos gerados por IA para os usuários</p>
+                        <button class="btn-action-card">Acessar</button>
+                    </div>
+                    <div class="action-card" onclick="window.location.href='register.html'">
+                        <div class="action-icon">
+                            <img src="../../assets/icons/add.png" alt="Ícone Cadastrar Novo Usuário">
+                        </div>
+                        <h3>Cadastrar Novo Usuário</h3>
+                        <p>Adicionar um novo usuário ou administrador ao sistema</p>
+                        <button class="btn-action-card">Cadastrar</button>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../js/supabase-config.js"></script>
+    <script src="../../js/admin/admin.js"></script>
+</body>
+</html>
